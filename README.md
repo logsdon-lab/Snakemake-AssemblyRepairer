@@ -6,7 +6,7 @@ Development environment: Linux
 Development tool: VScode
 ```
 conda install bioconda::snakemake=9.5.0
-git clone https://github.com/logsdon-lab/AssemblyRepairer.git
+git clone https://github.com/logsdon-lab/Snakemake-AssemblyRepairer.git
 ```
 
 ## Quick start
