@@ -164,6 +164,8 @@ rule run_single_repair_job:
         os.path.join(LOGS_DIR, "{sample}", "run_single_repair_job", "{name}.log")
     benchmark:
         os.path.join(BMKS_DIR, "{sample}", "run_single_repair_job", "{name}.tsv")
+    conda:
+        "envs/env.yaml"
     params:
         kmer_size = kmer_size,
         kmer_number = kmer_number,
@@ -212,6 +214,8 @@ rule merge_and_repair_assembly:
         os.path.join(LOGS_DIR, "{sample}", "merge_and_repair_assembly.log")
     benchmark:
         os.path.join(BMKS_DIR, "{sample}", "merge_and_repair_assembly.tsv")
+    conda:
+        "envs/env.yaml"
     params:
         repair_dir = lambda w: os.path.join(OUTDIR, w.sample, "repaired_results"),
         out_dir_path = lambda w: os.path.join(OUTDIR, w.sample)
@@ -256,6 +260,8 @@ rule get_rollback_info:
         os.path.join(LOGS_DIR, "{sample}", "get_rollback_info.log")
     benchmark:
         os.path.join(BMKS_DIR, "{sample}", "get_rollback_info.tsv") 
+    conda:
+        "envs/env.yaml"
     threads: 1
     shell:
         """
@@ -278,6 +284,8 @@ rule run_rollback:
         os.path.join(LOGS_DIR, "{sample}", "run_rollback.log")
     benchmark:
         os.path.join(BMKS_DIR, "{sample}", "run_rollback.tsv")
+    conda:
+        "envs/env.yaml"
     params:
         outdir = lambda w: os.path.join(OUTDIR, w.sample),
         repairdir = lambda w: os.path.join(OUTDIR, w.sample, "repaired_results"),
@@ -335,6 +343,8 @@ rule get_QC_report:
         os.path.join(LOGS_DIR, "{sample}", "get_QC_report.log")
     benchmark:
         os.path.join(BMKS_DIR, "{sample}", "get_QC_report.tsv") 
+    conda:
+        "envs/env.yaml"
     threads: 1
     shell:
         """
